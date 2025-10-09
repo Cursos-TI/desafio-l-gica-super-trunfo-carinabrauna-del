@@ -77,37 +77,40 @@ int main() {
 
     // População
     if (Populacao1 > Populacao2)
-        printf("Maior População: %s (%d habitantes)\n", Cidade1, Populacao1);
-    else if (Populacao2 > Populacao1)
-        printf("Maior População: %s (%d habitantes)\n", Cidade2, Populacao2);
+        printf("A Cidade1 tem maior população\n");
     else
-        printf("As duas cidades têm a mesma população.\n");
+        printf("A Cidade2 tem maior população.\n");
 
     // Área
     if (Area1 > Area2)
-        printf("Maior Área: %s (%.2f km²)\n", Cidade1, Area1);
-    else if (Area2 > Area1)
-        printf("Maior Área: %s (%.2f km²)\n", Cidade2, Area2);
-    else
-        printf("As duas cidades têm a mesma área.\n");
+        printf("A Cidade1 tem maior área\n");
+        else
+        printf("A Cidade2 tem maior populaçãomaior área.\n");
 
     // PIB
     if (Pib1 > Pib2)
-        printf("Maior PIB: %s (%.2f bilhões)\n", Cidade1, Pib1);
-    else if (Pib2 > Pib1)
-        printf("Maior PIB: %s (%.2f bilhões)\n", Cidade2, Pib2);
+        printf("A Cidade1 tem maior PIB\n");
     else
-        printf("As duas cidades têm o mesmo PIB.\n");
+        printf("A Cidade2 tem maior PIB.\n");
 
-    // Pontos turísticos (corrigido)
+    // Pontos turísticos 
     if (PontosTuristicos1 > PontosTuristicos2)
-        printf("Mais Pontos Turísticos: %s (%d pontos)\n", Cidade1, PontosTuristicos1);
-    else if (PontosTuristicos2 > PontosTuristicos1)
-        printf("Mais Pontos Turísticos: %s (%d pontos)\n", Cidade2, PontosTuristicos2);
+        printf("A Cidade1 tem mais Pontos Turísticos\n");
     else
-        printf("As duas cidades têm o mesmo número de pontos turísticos.\n");
+        printf("A Cidade2 tem mais pontos turísticos.\n");
 
-        return 0;
+        // ===== Comparação =====
+    printf("\n===== RESULTADO DA COMPARAÇÃO =====\n");
+
+    // Atributo escolhido: PIB
+    printf("Atributo utilizado para comparação: PIB (em bilhões)\n\n");
+    printf("%s (PIB: %.2f) VS %s (PIB: %.2f)\n\n", Cidade1, Pib1, Cidade2, Pib2);
+
+    if (Pib1 > Pib2) {
+        printf("Cidade1 venceu! Possui o maior PIB.\n", Cidade1);
+    } else 
+        printf("Cidade2 venceu! Possui o maior PIB.\n", Cidade2);
+            return 0;
 }
 
  
