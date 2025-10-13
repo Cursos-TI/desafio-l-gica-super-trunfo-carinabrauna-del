@@ -76,82 +76,71 @@ int main() {
     Densidade2 = (Area2 > 0) ? Populacao2 / Area2 : 0;
 
     // ===== Menu interativo =====
-    int escolha;
+    int escolha1, escolha2;
     printf("\n===== MENU DE COMPARAÇÃO =====\n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
     printf("4 - Densidade Demográfica\n");
     printf("5 - Pontos Turísticos\n");
-    printf("Escolha o atributo para comparar (1-5): ");
-    scanf("%d", &escolha);
 
-    printf("\n===== RESULTADO =====\n");
+    printf("Escolha o PRIMEIRO atributo para comparar (1-5): ");
+    scanf("%d", &escolha1);
+    printf("Escolha o SEGUNDO atributo para comparar (1-5): ");
+    scanf("%d", &escolha2);
 
-    switch (escolha) {
-        case 1:
-            printf("Atributo escolhido: População\n");
-            printf("%s: %d habitantes\n", Cidade1, Populacao1);
-            printf("%s: %d habitantes\n", Cidade2, Populacao2);
-            if (Populacao1 > Populacao2)
-                printf("🏆 %s venceu!\n", Cidade1);
-            else if (Populacao2 > Populacao1)
-                printf("🏆 %s venceu!\n", Cidade2);
-            else
-                printf("Empate!\n");
-            break;
+    printf("\n===== RESULTADOS =====\n");
 
-        case 2:
-            printf("Atributo escolhido: Área\n");
-            printf("%s: %.2f km²\n", Cidade1, Area1);
-            printf("%s: %.2f km²\n", Cidade2, Area2);
-            if (Area1 > Area2)
-                printf("🏆 %s venceu!\n", Cidade1);
-            else if (Area2 > Area1)
-                printf("🏆 %s venceu!\n", Cidade2);
-            else
-                printf("Empate!\n");
-            break;
+    // Função auxiliar com switch dinâmico e ternário
+    for (int i = 1; i <= 2; i++) {
+        int escolha = (i == 1) ? escolha1 : escolha2;
+        printf("\n--- Comparação %d ---\n", i);
 
-        case 3:
-            printf("Atributo escolhido: PIB\n");
-            printf("%s: %.2f bilhões\n", Cidade1, Pib1);
-            printf("%s: %.2f bilhões\n", Cidade2, Pib2);
-            if (Pib1 > Pib2)
-                printf("🏆 %s venceu!\n", Cidade1);
-            else if (Pib2 > Pib1)
-                printf("🏆 %s venceu!\n", Cidade2);
-            else
-                printf("Empate!\n");
-            break;
+        switch (escolha) {
+            case 1:
+                printf("Atributo: População\n");
+                printf("%s: %d | %s: %d\n", Cidade1, Populacao1, Cidade2, Populacao2);
+                printf("🏆 %s venceu!\n",
+                       (Populacao1 > Populacao2) ? Cidade1 :
+                       (Populacao2 > Populacao1) ? Cidade2 : "Empate");
+                break;
 
-        case 4:
-            printf("Atributo escolhido: Densidade Demográfica\n");
-            printf("%s: %.2f hab/km²\n", Cidade1, Densidade1);
-            printf("%s: %.2f hab/km²\n", Cidade2, Densidade2);
-            if (Densidade1 < Densidade2)
-                printf("🏆 %s venceu!\n", Cidade1);
-            else if (Densidade2 < Densidade1)
-                printf("🏆 %s venceu!\n", Cidade2);
-            else
-                printf("Empate!\n");
-            break;
+            case 2:
+                printf("Atributo: Área\n");
+                printf("%s: %.2f | %s: %.2f\n", Cidade1, Area1, Cidade2, Area2);
+                printf("🏆 %s venceu!\n",
+                       (Area1 > Area2) ? Cidade1 :
+                       (Area2 > Area1) ? Cidade2 : "Empate");
+                break;
 
-        case 5:
-            printf("Atributo escolhido: Pontos Turísticos\n");
-            printf("%s: %d pontos\n", Cidade1, PontosTuristicos1);
-            printf("%s: %d pontos\n", Cidade2, PontosTuristicos2);
-            if (PontosTuristicos1 > PontosTuristicos2)
-                printf("🏆 %s venceu!\n", Cidade1);
-            else if (PontosTuristicos2 > PontosTuristicos1)
-                printf("🏆 %s venceu!\n", Cidade2);
-            else
-                printf("Empate!\n");
-            break;
+            case 3:
+                printf("Atributo: PIB\n");
+                printf("%s: %.2f | %s: %.2f\n", Cidade1, Pib1, Cidade2, Pib2);
+                printf("🏆 %s venceu!\n",
+                       (Pib1 > Pib2) ? Cidade1 :
+                       (Pib2 > Pib1) ? Cidade2 : "Empate");
+                break;
 
-        default:
-            printf("Opção inválida!\n");
-            break;
+            case 4:
+                printf("Atributo: Densidade Demográfica\n");
+                printf("%s: %.2f | %s: %.2f\n", Cidade1, Densidade1, Cidade2, Densidade2);
+                printf("🏆 %s venceu!\n",
+                       (Densidade1 < Densidade2) ? Cidade1 :
+                       (Densidade2 < Densidade1) ? Cidade2 : "Empate");
+                break;
+
+            case 5:
+                printf("Atributo: Pontos Turísticos\n");
+                printf("%s: %d | %s: %d\n", Cidade1, PontosTuristicos1, Cidade2, PontosTuristicos2);
+                printf("🏆 %s venceu!\n",
+                       (PontosTuristicos1 > PontosTuristicos2) ? Cidade1 :
+                       (PontosTuristicos2 > PontosTuristicos1) ? Cidade2 : "Empate");
+                break;
+
+            default:
+                printf("Opção inválida!\n");
+                break;
+        }
     }
 
     printf("\n===== FIM DO JOGO =====\n");
